@@ -1,5 +1,5 @@
 import * as Device from 'expo-device';
-import { Platform, StyleSheet } from 'react-native';
+import { Platform, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { AnimatedIcon } from '@/components/animated-icon';
@@ -31,7 +31,11 @@ function getDevMenuHint() {
 export default function HomeScreen() {
   return (
     <ThemedView style={styles.container}>
-      <SafeAreaView style={styles.safeArea}>
+      <SafeAreaView style={styles.safeArea} className="bg-surface">
+        {/* TEMP NativeWind smoke test - delete once verified */}
+        <View className="h-16 w-full rounded-md bg-accent" />
+        <View className="h-16 w-full rounded-md bg-formulaB" />
+        <View className="h-16 w-full rounded-md border border-hairlineStrong bg-surfaceHighest" />
         <ThemedView style={styles.heroSection}>
           <AnimatedIcon />
           <ThemedText type="title" style={styles.title}>
