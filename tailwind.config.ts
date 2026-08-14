@@ -10,12 +10,15 @@ const toVars = (p: Palette) =>
 
 const colors = Object.fromEntries(Object.keys(dark).map((k) => [k, `var(--color-${k})`]));
 
+const fontFamily = { mono: ['Menlo'], math: ['Iowan Old Style'] };
+
 const borderRadius = Object.fromEntries(Object.entries(radius).map(([k, v]) => [k, `${v}px`]));
 
 export default {
+  darkMode: 'class',
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   presets: [nativewindPreset],
-  theme: { extend: { colors, borderRadius } },
+  theme: { extend: { colors, borderRadius, fontFamily } },
   plugins: [
     plugin(({ addBase }) => addBase({ ':root': toVars(light), '.dark:root': toVars(dark) })),
   ],
